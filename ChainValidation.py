@@ -12,9 +12,9 @@ from pybrain.tools.validation import ModuleValidator, Validator
 from sys import stdout
 
 
-csvfile = open('/Users/CocoZK/Desktop/study/graduate/data/data35.csv', 'wb')
+csvfile = open('data35.csv', 'wb')
 spamwriter = csv.writer(csvfile, delimiter=' ')
-data = np.genfromtxt('/Users/CocoZK/Desktop/study/graduate/data/normopen.csv', delimiter=",", dtype=float)
+data = np.genfromtxt('normopen.csv', delimiter=",", dtype=float)
 #input area, the lp is to control the how
 #  many experiments to do in once and to output the result in one file,
 # now suggested to put all small datasets together
@@ -39,7 +39,7 @@ for lp in range(0,1,1):
     tedats = int(tedats)
 
 
-    sys.stdout=open("/Users/CocoZK/Desktop/study/graduate/data/data35.csv", "a")
+    sys.stdout=open("data35.csv", "a")
     dat = data[trdatf:trdats]
     num = len(dat)-len(dat)%(kfolds+1)
     dat = dat[0:num]
