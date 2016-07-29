@@ -12,8 +12,7 @@ from pybrain.tools.validation import ModuleValidator, Validator
 from sys import stdout
 
 
-csvfile = open('data35.csv', 'wb')
-spamwriter = csv.writer(csvfile, delimiter=' ')
+
 data = np.genfromtxt('normopen.csv', delimiter=",", dtype=float)
 #input area, the lp is to control the how
 #  many experiments to do in once and to output the result in one file,
@@ -23,23 +22,16 @@ data = np.genfromtxt('normopen.csv', delimiter=",", dtype=float)
 for lp in range(0,1,1):
 
     kfolds = raw_input("Input a number for the kfolds in cross validation here: ")
-    spamwriter.writerow(kfolds)
     trdatf = raw_input("Thfe range of training data here(start) ")
-    spamwriter.writerow(trdatf)
     trdats = raw_input("The range of training data here(end) ")
-    spamwriter.writerow(trdats)
     tedatf = raw_input("The range of testing data here(start) ")
-    spamwriter.writerow(tedatf)
     tedats = raw_input("The range of training data here(end) ")
-    spamwriter.writerow(tedats)
     kfolds = int(kfolds)
     trdatf = int(trdatf)
     trdats = int(trdats)
     tedatf = int(tedatf)
     tedats = int(tedats)
 
-
-    sys.stdout=open("data35.csv", "a")
     dat = data[trdatf:trdats]
     num = len(dat)-len(dat)%(kfolds+1)
     dat = dat[0:num]
